@@ -1,0 +1,22 @@
+{
+    "manifest_version" : 2,
+    "name" : "Define Word Shortcut",
+    "short_name": "Define Word",
+    "description": "Get the dictionary meaning, by typing 'd <word>' in the address bar. Works only in Google, Bing or Yahoo search engines",
+    "version": "1.0",    
+    "permissions": [
+        "https://*/*",
+        "tabs",
+        "webNavigation"
+    ],
+    "background" : {
+        "scripts" : ["background.js"]
+    },
+    "content_scripts" : [
+        {
+            "matches" : ["https://*/search*"],
+            "js" : ["redirect.js"],
+            "run_at": "document_start"
+        }        
+    ]
+}
